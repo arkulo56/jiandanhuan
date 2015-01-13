@@ -16,6 +16,7 @@ class myCollectionViewCell: UICollectionViewCell {
     
     let textLabel: UILabel!
     let textLabel1: UILabel!
+    let textLabel2: UILabel!
     //let imageView: UIImageView!
     
     override init(frame: CGRect) {
@@ -26,13 +27,6 @@ class myCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         contentView.addSubview(imageView)
         */
-        //还款日期
-        let textFrame = CGRect(x: 0, y: 40, width: frame.size.width, height: frame.size.height/2)
-        textLabel = UILabel(frame: textFrame)
-        textLabel.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
-        textLabel.textAlignment = .Center
-        textLabel.textColor=UIColor.greenColor()
-        contentView.addSubview(textLabel)
         
         //银行
         let textFrame1 = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height/2)
@@ -41,6 +35,21 @@ class myCollectionViewCell: UICollectionViewCell {
         textLabel1.textAlignment = .Center
         textLabel1.textColor=UIColor.whiteColor()
         contentView.addSubview(textLabel1)
+        //还款日期
+        let textFrame = CGRect(x: 0, y: 25, width: frame.size.width, height: frame.size.height/2)
+        textLabel = UILabel(frame: textFrame)
+        textLabel.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
+        textLabel.textAlignment = .Center
+        textLabel.textColor=UIColor.whiteColor()
+        contentView.addSubview(textLabel)
+        
+        let textFrame2 = CGRect(x: 0, y: 40, width: frame.size.width, height: frame.size.height/2)
+        textLabel2 = UILabel(frame: textFrame2)
+        textLabel2.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
+        textLabel2.textAlignment = .Center
+        textLabel2.textColor=UIColor.greenColor()
+        contentView.addSubview(textLabel2)
+
         
         
     }

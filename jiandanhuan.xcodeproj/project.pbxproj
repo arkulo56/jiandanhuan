@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0494DF1A6400D00038E642 /* Repayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0494DE1A6400D00038E642 /* Repayment.swift */; };
+		AC0494E11A6400D00038E642 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0494E01A6400D00038E642 /* Credit.swift */; };
+		AC0494E31A640EFE0038E642 /* rePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0494E21A640EFE0038E642 /* rePaymentViewController.swift */; };
 		AC341D1C1A53F4C9003D34F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D1B1A53F4C9003D34F4 /* AppDelegate.swift */; };
 		AC341D1F1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC341D1D1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld */; };
 		AC341D211A53F4C9003D34F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D201A53F4C9003D34F4 /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0494DE1A6400D00038E642 /* Repayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repayment.swift; sourceTree = "<group>"; };
+		AC0494E01A6400D00038E642 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
+		AC0494E21A640EFE0038E642 /* rePaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rePaymentViewController.swift; sourceTree = "<group>"; };
 		AC341D161A53F4C9003D34F4 /* jiandanhuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiandanhuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC341D1A1A53F4C9003D34F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC341D1B1A53F4C9003D34F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,9 +95,12 @@
 				AC341D251A53F4C9003D34F4 /* Images.xcassets */,
 				AC341D271A53F4C9003D34F4 /* LaunchScreen.xib */,
 				AC341D1D1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld */,
+				AC0494E01A6400D00038E642 /* Credit.swift */,
+				AC0494DE1A6400D00038E642 /* Repayment.swift */,
 				AC341D191A53F4C9003D34F4 /* Supporting Files */,
 				AC341D401A550D84003D34F4 /* myCollectionViewCell.swift */,
 				AC341D421A553D66003D34F4 /* addCredit.swift */,
+				AC0494E21A640EFE0038E642 /* rePaymentViewController.swift */,
 			);
 			path = jiandanhuan;
 			sourceTree = "<group>";
@@ -224,6 +233,9 @@
 				AC341D431A553D66003D34F4 /* addCredit.swift in Sources */,
 				AC341D211A53F4C9003D34F4 /* ViewController.swift in Sources */,
 				AC341D1C1A53F4C9003D34F4 /* AppDelegate.swift in Sources */,
+				AC0494DF1A6400D00038E642 /* Repayment.swift in Sources */,
+				AC0494E31A640EFE0038E642 /* rePaymentViewController.swift in Sources */,
+				AC0494E11A6400D00038E642 /* Credit.swift in Sources */,
 				AC341D411A550D84003D34F4 /* myCollectionViewCell.swift in Sources */,
 				AC341D1F1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld in Sources */,
 			);

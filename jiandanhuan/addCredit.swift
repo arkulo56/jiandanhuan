@@ -29,17 +29,23 @@ class addCredit: UIViewController {
     @IBAction func addSave(sender: UIBarButtonItem) {
         if(!bankTF.text.isEmpty && !zhangdanriTF.text.isEmpty && !huankuanriTF.text.isEmpty)
         {
-            var row:AnyObject = NSEntityDescription.insertNewObjectForEntityForName("Credit", inManagedObjectContext: content!)
-            var bank = bankTF.text
-            var zhangdanri = zhangdanriTF.text.toInt()
-            var huankuanri = huankuanriTF.text.toInt()
+            var row = NSEntityDescription.insertNewObjectForEntityForName("Credit", inManagedObjectContext: content!) as Credit
+            //查询最大的bankId
+            var rq = NSFetchRequest(entityName: "Credit")
+            var sort = NSSortDescriptor(key: "bankId", ascending: false)
+            rq.sortDescriptors = [sort]
+            rq.fetchLimit = 1
+            var res:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
+            var bankId = res[0].valueForKey("bankId") as NSNumber
             
-            row.setValue(bank, forKey: "bank")
-            row.setValue(zhangdanri, forKey: "zhangdanri")
-            row.setValue(huankuanri, forKey: "huankuanri")
+            row.bank = bankTF.text
+            row.zhangdanri = zhangdanriTF.text.toInt()!
+            row.huankuanri = huankuanriTF.text.toInt()!
+            row.bankId = bankId+1
             content?.save(nil)
             
             self.tabBarController?.selectedIndex=0
+            
         }
     }
     override func didReceiveMemoryWarning() {

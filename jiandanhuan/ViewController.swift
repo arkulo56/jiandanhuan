@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class ViewController:
     UIViewController,
     UICollectionViewDelegateFlowLayout,
@@ -34,8 +35,6 @@ class ViewController:
     override func viewDidLoad() {
         super.viewDidLoad()
         content = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
-        //插入一次数据
-        addData()
         //数据初始化
         initData()
         
@@ -52,6 +51,9 @@ class ViewController:
         cv!.registerClass(myCollectionViewCell.self, forCellWithReuseIdentifier: "newCell")
         cv!.backgroundColor=UIColor.whiteColor()
         
+        //路径
+        println(applicationDirectoryPath())
+        
     }
    
     //数据总数
@@ -61,11 +63,35 @@ class ViewController:
     //每个cell的数据显示
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("newCell", forIndexPath: indexPath) as myCollectionViewCell
-        
+        //Credit数据处理,查询每张信用卡当月还款额度
+        var rq = NSFetchRequest(entityName: "Repayment")
+        var key = "toCredit.bankId"
+        var pred:NSPredicate!
+        //查询条件
+        if let value = dataArr[indexPath.row].valueForKey("bankId") as? NSObject {
+            pred = NSPredicate(format: "%K == %@", key, value)
+        }
+        rq.predicate = pred
+        //排序
+        var sort = NSSortDescriptor(key: "month", ascending: true)
+        var sort1 = NSSortDescriptor(key: "year", ascending: true)
+        rq.sortDescriptors = [sort,sort1]
+        //limit
+        rq.fetchLimit = 1
+        var tmpArr:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
+        //给cell的3个label赋值
         var z: AnyObject! = dataArr[indexPath.row].valueForKey("zhangdanri")
         var h: AnyObject! = dataArr[indexPath.row].valueForKey("huankuanri")
         cell.textLabel?.text = "\(z)~\(h)"
         cell.textLabel1?.text=dataArr[indexPath.row].valueForKey("bank") as? String
+        if(tmpArr.count>=1)
+        {
+            var reAmount: AnyObject! = tmpArr[0].valueForKey("payAmount")
+            cell.textLabel2?.text = "$\(reAmount)"
+        }else
+        {
+            cell.textLabel2?.text = "当月无数据"
+        }
         cell.backgroundColor = UIColor.grayColor()
         cell.tag = indexPath.row
         //每个cell绑定long press事件
@@ -74,7 +100,19 @@ class ViewController:
         cell.addGestureRecognizer(lp)
         return cell
     }
-
+    //单击一个cell块后，跳转至添加当月还款额
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //println(indexPath.row)
+        var dataTmp:NSManagedObject! = dataArr[indexPath.row] as NSManagedObject
+        //println(data.valueForKey("bankId"))
+        
+        //跳转
+        let myStoryBoard = self.storyboard
+        let rePayment:rePaymentViewController = myStoryBoard?.instantiateViewControllerWithIdentifier("rePayment") as rePaymentViewController
+        rePayment.data = dataTmp
+        self.navigationController?.pushViewController(rePayment, animated: true)
+        
+    }
 
     
     //数据------------------------------------------------------------
@@ -84,19 +122,7 @@ class ViewController:
         var tmp = NSFetchRequest(entityName: "Credit")
         dataArr = content.executeFetchRequest(tmp,error:nil)
     }
-    //添加一次数据
-    func addData()
-    {
-        var row:AnyObject = NSEntityDescription.insertNewObjectForEntityForName("Credit", inManagedObjectContext: content!)
-        var bank="arkulo"
-        var zhangdanri=10
-        var huankuanri=8
-        
-        row.setValue(bank, forKey: "bank")
-        row.setValue(zhangdanri, forKey: "zhangdanri")
-        row.setValue(huankuanri, forKey: "huankuanri")
-        content?.save(nil)
-    }
+
     
     //给cell绑定long press的callback函数
     func longPress(recognizer: UILongPressGestureRecognizer){
@@ -156,6 +182,9 @@ class ViewController:
     override func viewWillAppear(animated: Bool) {
         initData()
         cv!.reloadData()
+    }
+    func applicationDirectoryPath() -> String {
+        return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as String
     }
 }
 

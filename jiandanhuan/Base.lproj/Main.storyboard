@@ -263,7 +263,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="智能还款提醒" id="r41-rV-Bub"/>
                     <connections>
+                        <outlet property="currentMonthMoney" destination="qY5-Be-LeZ" id="4BX-il-8AB"/>
                         <outlet property="cv" destination="8fD-dG-GvI" id="3RT-Cd-hlQ"/>
+                        <outlet property="topImage" destination="dtH-vo-Ra8" id="L60-GN-fCm"/>
                         <outlet property="view12" destination="cTV-LE-qgN" id="In4-oL-Yyb"/>
                     </connections>
                 </viewController>

@@ -21,23 +21,24 @@ class ViewController:
     @IBOutlet var cv: UICollectionView!
     //应用集合的上层view
     @IBOutlet var view12: UIView!
-    
+    //最上面的图片
+    @IBOutlet weak var topImage: UIImageView!
+    //当月还款总额label
+    @IBOutlet weak var currentMonthMoney: UILabel!
     //数据变量
     var dataArr:Array<AnyObject>! = []
     var data:NSManagedObject!
     var content:NSManagedObjectContext!
-    
+    //当前数据索引
     var nowIndexData:Int!
+    //当月还款总额
+    var amountNum:String!
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         content = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         //数据初始化
         initData()
-        
         
         //集合布局
         let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -52,10 +53,55 @@ class ViewController:
         cv!.backgroundColor=UIColor.whiteColor()
         
         //路径
-        println(applicationDirectoryPath())
+        //println(applicationDirectoryPath())
         
     }
    
+    //计算目前当月总计还款总额
+    func computeAmount()
+    {
+        //取当前年月
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate: date)
+        var year = components.year
+        var month = components.month
+        //println("jinlaile")
+        var rq = NSFetchRequest(entityName: "Repayment")
+        var whe = NSPredicate(format: "year=%@","\(year)")
+        var whe1 = NSPredicate(format: "month=%@", "\(month)")
+        var compound = NSCompoundPredicate.andPredicateWithSubpredicates([whe,whe1])
+        rq.predicate = compound
+        var tmpData:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
+        //println(tmpData.count)
+        var payAmout = 0
+        for item in tmpData
+        {
+            //println(item.valueForKey("payAmount"))
+            if let value = item.valueForKey("payAmount") as? NSNumber {
+                payAmout = payAmout+value
+            }
+        }
+        amountNum = "本月应还款$\(payAmout).00"
+        //改变label的内容
+        currentMonthMoney.text = amountNum
+        //改变top图片
+        var image1:UIImage? = UIImage(named: "bik")
+        var image2:UIImage? = UIImage(named: "motuo")
+        var image3:UIImage? = UIImage(named: "qiche")
+        switch payAmout
+        {
+        case 0...3000:
+            topImage.image = image1
+        case 3000...6000:
+            topImage.image = image2
+        case 6000...10000:
+            topImage.image = image3
+        default:
+            topImage.image = image3
+        }
+    }
+    
     //数据总数
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArr.count
@@ -121,6 +167,8 @@ class ViewController:
     {
         var tmp = NSFetchRequest(entityName: "Credit")
         dataArr = content.executeFetchRequest(tmp,error:nil)
+        //计算当月还款总额
+        computeAmount()
     }
 
     
@@ -136,6 +184,7 @@ class ViewController:
                 { (action: UIAlertAction!) in
                   
                     self.content.deleteObject(self.dataArr[self.nowIndexData] as NSManagedObject)
+                    self.content.save(nil)
                     self.initData()
                     self.cv!.reloadData()
                 }
@@ -160,7 +209,9 @@ class ViewController:
         
         switch buttonIndex{
         case 0:
+            //println("alert")
             self.content.deleteObject(self.dataArr[self.nowIndexData] as NSManagedObject)
+            self.content.save(nil)
             self.initData()
             self.cv!.reloadData()
             break;

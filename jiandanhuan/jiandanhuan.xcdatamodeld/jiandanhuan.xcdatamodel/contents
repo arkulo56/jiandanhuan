@@ -5,14 +5,14 @@
         <attribute name="bankId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="huankuanri" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="zhangdanri" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="toRepayment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repayment" inverseName="toCredit" inverseEntity="Repayment" syncable="YES"/>
+        <relationship name="toRepayment" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Repayment" inverseName="toCredit" inverseEntity="Repayment" syncable="YES"/>
     </entity>
     <entity name="Repayment" representedClassName="Repayment" syncable="YES">
         <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="payAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="toCredit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Credit" inverseName="toRepayment" inverseEntity="Credit" syncable="YES"/>
+        <relationship name="toCredit" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Credit" inverseName="toRepayment" inverseEntity="Credit" syncable="YES"/>
     </entity>
     <elements>
         <element name="Credit" positionX="-63" positionY="-18" width="128" height="118"/>

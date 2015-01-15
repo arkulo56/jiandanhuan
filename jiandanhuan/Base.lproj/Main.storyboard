@@ -265,6 +265,8 @@
                     <connections>
                         <outlet property="currentMonthMoney" destination="qY5-Be-LeZ" id="4BX-il-8AB"/>
                         <outlet property="cv" destination="8fD-dG-GvI" id="3RT-Cd-hlQ"/>
+                        <outlet property="sysMessage" destination="xVn-Iy-w3T" id="FB4-1d-4ut"/>
+                        <outlet property="sysMessage2" destination="m6f-dJ-7uL" id="Axc-Wk-UX0"/>
                         <outlet property="topImage" destination="dtH-vo-Ra8" id="L60-GN-fCm"/>
                         <outlet property="view12" destination="cTV-LE-qgN" id="In4-oL-Yyb"/>
                     </connections>
@@ -415,12 +417,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNL-m7-1QG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="878"/>
+            <point key="canvasLocation" x="708" y="878"/>
         </scene>
-        <!--View Controller-->
+        <!--薪水日-->
         <scene sceneID="HPy-vz-u0O">
             <objects>
-                <viewController id="4Er-RZ-9dJ" sceneMemberID="viewController">
+                <viewController id="4Er-RZ-9dJ" customClass="salaryViewController" customModule="jiandanhuan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fjV-fW-Bfy"/>
                         <viewControllerLayoutGuide type="bottom" id="I4C-jk-dJQ"/>
@@ -428,13 +430,53 @@
                     <view key="view" contentMode="scaleToFill" id="CT3-Z9-vxE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R42-n5-Idz">
+                                <rect key="frame" x="112" y="298" width="377" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4Er-RZ-9dJ" id="SOr-JC-ybt"/>
+                                    <outlet property="delegate" destination="4Er-RZ-9dJ" id="2bw-Co-8bF"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="薪水日：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pt-kZ-EMK">
+                                <rect key="frame" x="101" y="117" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4G-e1-2EK">
+                                <rect key="frame" x="198" y="113" width="211" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2pt-kZ-EMK" firstAttribute="leading" secondItem="CT3-Z9-vxE" secondAttribute="leadingMargin" constant="20" id="6Z8-u7-nTY" userLabel="label"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R42-n5-Idz" secondAttribute="trailing" constant="30" id="EWf-m1-vFy" userLabel="pv"/>
+                            <constraint firstItem="R42-n5-Idz" firstAttribute="leading" secondItem="CT3-Z9-vxE" secondAttribute="leadingMargin" constant="30" id="Roj-hR-c8d" userLabel="pv"/>
+                            <constraint firstItem="h4G-e1-2EK" firstAttribute="leading" secondItem="2pt-kZ-EMK" secondAttribute="trailing" constant="5" id="XNg-qO-WNR" userLabel="label-textfield"/>
+                            <constraint firstItem="2pt-kZ-EMK" firstAttribute="top" secondItem="fjV-fW-Bfy" secondAttribute="bottom" constant="40" id="leu-w7-fDZ" userLabel="label"/>
+                            <constraint firstItem="h4G-e1-2EK" firstAttribute="centerY" secondItem="2pt-kZ-EMK" secondAttribute="centerY" constant="0.5" id="mNN-xT-C7C" userLabel="label-textfield"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h4G-e1-2EK" secondAttribute="trailing" constant="20" id="tlm-wB-dD6" userLabel="label"/>
+                            <constraint firstItem="I4C-jk-dJQ" firstAttribute="top" secondItem="R42-n5-Idz" secondAttribute="bottom" constant="50" id="xNK-YB-3gU" userLabel="pv"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cVV-lJ-dtj"/>
+                    <navigationItem key="navigationItem" title="薪水日" id="cVV-lJ-dtj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CtK-Gh-FLW">
+                            <connections>
+                                <action selector="setSaraly:" destination="4Er-RZ-9dJ" id="nFC-Mw-vsf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="R42-n5-Idz" id="1oT-8b-bwm"/>
+                        <outlet property="textTF" destination="h4G-e1-2EK" id="dNK-g8-tdS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3K-yt-OuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576" y="1790"/>
+            <point key="canvasLocation" x="2576" y="1650"/>
         </scene>
         <!--首页-->
         <scene sceneID="z02-RK-Jvd">
@@ -491,7 +533,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbX-pa-qz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="1790"/>
+            <point key="canvasLocation" x="1764" y="1650"/>
         </scene>
     </scenes>
     <resources>

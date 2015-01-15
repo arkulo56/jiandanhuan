@@ -14,8 +14,13 @@
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="toCredit" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Credit" inverseName="toRepayment" inverseEntity="Credit" syncable="YES"/>
     </entity>
+    <entity name="Saraly" representedClassName="Saraly" syncable="YES">
+        <attribute name="daySaraly" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Credit" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="Repayment" positionX="178" positionY="-33" width="128" height="118"/>
+        <element name="Saraly" positionX="-63" positionY="144" width="128" height="73"/>
     </elements>
 </model>

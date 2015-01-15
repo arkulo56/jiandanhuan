@@ -12,18 +12,106 @@ import CoreData
 class addCredit: UIViewController {
     
     @IBOutlet var bankTF: UITextField!
-    
     @IBOutlet var zhangdanriTF: UITextField!
-    
     @IBOutlet var huankuanriTF: UITextField!
-
+    //数据content
     var content:NSManagedObjectContext!
+    //薪水
+    var saralyGlobal:Int! = 1
+    //最佳还款日objectId
+    var obId:NSManagedObjectID!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         content = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        //判断最佳还款日是否已有记录
+        var rq = NSFetchRequest(entityName: "Saraly")
+        var whe = NSPredicate(format: "sId=%@", "2")
+        rq.predicate = whe
+        var data:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
+        //println(data[0].valueForKey("daySaraly"))
+        if(data.count>0)
+        {
+            obId = data[0].objectID
+        }else
+        {
+            initBest()
+        }
         
+    }
+    //初始化最佳还款日数据(借用Saraly表，sId=2)
+    func initBest()
+    {
+        var row = NSEntityDescription.insertNewObjectForEntityForName("Saraly", inManagedObjectContext: content!) as Saraly
+        row.sId = 2
+        row.daySaraly = 1
+        content.save(nil)
+        obId = row.objectID
+    }
+    //薪水日
+    func getSaraly()
+    {
+        var rq = NSFetchRequest(entityName: "Saraly")
+        var whe = NSPredicate(format: "sId=%@", "1")
+        rq.predicate = whe
+        var saraly:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
+        if(saraly.count>0)
+        {
+            saralyGlobal = saraly[0].valueForKey("daySaraly") as Int
+        }
+    }
+    
+    //最后账单日and最近还款日
+    func dayCalculation()
+    {
+        //获取薪水日
+        getSaraly()
+        var bestDay:Int = 0
+        var zhangDay:Array<Int>! = [] //账单日
+        var huanDay:Array<Int>! = [] //还款日
+        //最大的还款日
+        var rq1 = NSFetchRequest(entityName: "Credit")
+        var d1:Array<AnyObject>! = content.executeFetchRequest(rq1, error: nil)
+        if(d1.count > 0)
+        {
+        var key = 0
+        for item in d1
+        {
+            //求账单日和还款日的最大最小值
+            var z = item.valueForKey("zhangdanri") as Int
+            var h = item.valueForKey("huankuanri") as Int
+            zhangDay.append(z)
+            //账单日和还款日如果不是同一个月，则给账单日加30天
+            if(h > z)
+            {
+                huanDay.append(h)
+            }else
+            {
+                huanDay.append(h+30)
+            }
+            key = key + 1
+        }
+        //最大最小值
+        var z = maxElement(zhangDay) //账单日
+        var h = minElement(huanDay)  //还款日
+        if(saralyGlobal>z && saralyGlobal<h)
+        {
+            bestDay = saralyGlobal
+        }else if (saralyGlobal+30>z && saralyGlobal<h)
+        {
+            bestDay = saralyGlobal
+        }else
+        {
+            bestDay = z
+        }
+        //更新最佳还款日
+        var dd = content.objectWithID(obId)
+        dd.setValue(bestDay, forKeyPath: "daySaraly")
+        content.save(nil)
+        
+        self.tabBarController?.selectedIndex=0
+        }
     }
 
     @IBAction func addSave(sender: UIBarButtonItem) {
@@ -43,8 +131,9 @@ class addCredit: UIViewController {
             row.huankuanri = huankuanriTF.text.toInt()!
             row.bankId = bankId+1
             content?.save(nil)
+            //计算最佳还款日
+            dayCalculation()
             
-            self.tabBarController?.selectedIndex=0
             
         }
     }

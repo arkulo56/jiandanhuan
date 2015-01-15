@@ -25,6 +25,10 @@ class ViewController:
     @IBOutlet weak var topImage: UIImageView!
     //当月还款总额label
     @IBOutlet weak var currentMonthMoney: UILabel!
+    //系统信息
+    @IBOutlet weak var sysMessage: UILabel!
+    
+    @IBOutlet weak var sysMessage2: UILabel!
     //数据变量
     var dataArr:Array<AnyObject>! = []
     var data:NSManagedObject!
@@ -33,7 +37,10 @@ class ViewController:
     var nowIndexData:Int!
     //当月还款总额
     var amountNum:String!
+    //发薪水的日子
+    var daySaraly:String!
     
+    //视图初始化
     override func viewDidLoad() {
         super.viewDidLoad()
         content = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
@@ -53,8 +60,26 @@ class ViewController:
         cv!.backgroundColor=UIColor.whiteColor()
         
         //路径
-        //println(applicationDirectoryPath())
+        println(applicationDirectoryPath())
         
+    }
+    
+    //查询发薪水的日子
+    func initSaraly()
+    {
+        var rq = NSFetchRequest(entityName: "Saraly")
+        var whe = NSPredicate(format: "sId=%@", "1")
+        rq.predicate = whe
+        var d:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
+        if(d?.count>0)
+        {
+            var tmpDay = d[0].valueForKey("daySaraly")
+            daySaraly = "每月\(tmpDay)号发薪水哦～"
+        }else
+        {
+            daySaraly = "还没有设置发薪水日哦～"
+        }
+        sysMessage.text = daySaraly
     }
    
     //计算目前当月总计还款总额
@@ -169,6 +194,8 @@ class ViewController:
         dataArr = content.executeFetchRequest(tmp,error:nil)
         //计算当月还款总额
         computeAmount()
+        //获取薪水日
+        initSaraly()
     }
 
     

@@ -16,15 +16,19 @@ class ViewController:
     UICollectionViewDataSource,
     UIGestureRecognizerDelegate
     {
-    
+    //最顶部的view视图
+    @IBOutlet weak var view1: UIView!
+    //view1的实时宽高
+    var tWidth:CGFloat!
+    var tHeight:CGFloat!
     //应用集合
     @IBOutlet var cv: UICollectionView!
     //应用集合的上层view
     @IBOutlet var view12: UIView!
     //最上面的图片
-    @IBOutlet weak var topImage: UIImageView!
+    //@IBOutlet weak var topImage: UIImageView!
     //当月还款总额label
-    @IBOutlet weak var currentMonthMoney: UILabel!
+    //@IBOutlet weak var currentMonthMoney: UILabel!
     //系统信息
     @IBOutlet weak var sysMessage: UILabel!
     
@@ -109,8 +113,9 @@ class ViewController:
         }
         amountNum = "本月应还款$\(payAmout).00"
         //改变label的内容
-        currentMonthMoney.text = amountNum
+        sysMessage2.text = amountNum
         //改变top图片
+        /*
         var image1:UIImage? = UIImage(named: "bik")
         var image2:UIImage? = UIImage(named: "motuo")
         var image3:UIImage? = UIImage(named: "qiche")
@@ -125,8 +130,8 @@ class ViewController:
         default:
             topImage.image = image3
         }
+        */
     }
-    
     //数据总数
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArr.count
@@ -252,14 +257,57 @@ class ViewController:
         }
     }
     
+    //给view1画图表
+    func getLineChart() -> PDLineChart {
+        var dataItem: PDLineChartDataItem = PDLineChartDataItem()
+        dataItem.xMax = 12.0
+        dataItem.xInterval = 1.0
+        dataItem.yMax = 50.0
+        dataItem.yInterval = 10.0
+        dataItem.pointArray = [
+            CGPoint(x: 1.0, y: 44.0),
+            CGPoint(x: 2.0, y: 25.0),
+            CGPoint(x: 3.0, y: 30.0),
+            CGPoint(x: 4.0, y:28.0),
+            CGPoint(x: 5.0, y: 14.0),
+            CGPoint(x: 6.0, y: 6.0),
+            CGPoint(x: 7.0, y: 40.0),
+            CGPoint(x: 8.0, y: 44.0),
+            CGPoint(x: 9.0, y: 25.0),
+            CGPoint(x: 10.0, y: 30.0),
+            CGPoint(x: 11.0, y:28.0),
+            CGPoint(x: 12.0, y: 14.0)
+        ]
+        dataItem.xAxesDegreeTexts = ["1", "2", "3", "4", "5", "6", "7","8","9","10","11","12"]
+        dataItem.yAxesDegreeTexts = ["4k","6k","8k","10k","12k"]
+        
+        var lineChart: PDLineChart = PDLineChart(frame: CGRectMake(0, 0, self.tWidth,self.tHeight), dataItem: dataItem)
+        //var lineChart: PDLineChart = PDLineChart(frame: self.view1.bounds, dataItem: dataItem)
+        
+        return lineChart
+    }
+
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    //当页面即将显示的时候
     override func viewWillAppear(animated: Bool) {
         initData()
         cv!.reloadData()
+    }
+    //当页面已经完成显示后
+    override func viewDidAppear(animated: Bool){
+        self.tWidth = self.view1.frame.size.width
+        self.tHeight = self.view1.frame.size.height
+        
+        println(self.tWidth)
+        println(self.tHeight)
+        var lineChart: PDLineChart = self.getLineChart()
+        self.view1.addSubview(lineChart)
+        lineChart.strokeChart()
     }
     func applicationDirectoryPath() -> String {
         return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as String

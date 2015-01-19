@@ -118,39 +118,21 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ueg-Z9-GSM" userLabel="view1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="606"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADk-uE-Axt" userLabel="View11">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADk-uE-Axt" userLabel="View11">
                                         <rect key="frame" x="0.0" y="67" width="600" height="119"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bik" translatesAutoresizingMaskIntoConstraints="NO" id="dtH-vo-Ra8">
-                                                <rect key="frame" x="272" y="10" width="57" height="57"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="上月还款¥5000.00元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY5-Be-LeZ">
-                                                <rect key="frame" x="160" y="75" width="280" height="33"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
                                         <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="qY5-Be-LeZ" firstAttribute="top" secondItem="dtH-vo-Ra8" secondAttribute="bottom" constant="2" id="FxD-Hr-8CR" userLabel="bik和label垂直距离"/>
-                                            <constraint firstAttribute="centerX" secondItem="dtH-vo-Ra8" secondAttribute="centerX" id="Zow-1w-AXG" userLabel="bik垂直居中"/>
-                                            <constraint firstAttribute="bottom" secondItem="qY5-Be-LeZ" secondAttribute="bottom" constant="5" id="eQu-Bd-8HY" userLabel="label下边距"/>
-                                            <constraint firstAttribute="centerX" secondItem="qY5-Be-LeZ" secondAttribute="centerX" id="pBx-iU-doF" userLabel="label垂直居中"/>
-                                            <constraint firstItem="dtH-vo-Ra8" firstAttribute="top" secondItem="ADk-uE-Axt" secondAttribute="top" constant="5" id="yYC-WC-Bz3" userLabel="bik上边距"/>
-                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W99-EI-dSo" userLabel="View12">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W99-EI-dSo" userLabel="View12">
                                         <rect key="frame" x="0.0" y="190" width="600" height="132"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0un-6d-xl4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0un-6d-xl4">
                                                 <rect key="frame" x="34" y="41" width="532" height="72"/>
                                                 <color key="backgroundColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="最佳还款日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4l-de-PK6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="最佳还款日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4l-de-PK6">
                                                 <rect key="frame" x="55" y="30" width="93" height="21"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -168,10 +150,10 @@
                                             <constraint firstItem="0un-6d-xl4" firstAttribute="top" secondItem="K4l-de-PK6" secondAttribute="top" constant="5" id="vsZ-6e-QFS" userLabel="两元素顶对齐"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-LE-qgN" userLabel="View13">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-LE-qgN" userLabel="View13">
                                         <rect key="frame" x="0.0" y="327" width="600" height="167"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-dG-GvI">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-dG-GvI">
                                                 <rect key="frame" x="49" y="32" width="502" height="104"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="au1-81-70a">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -263,11 +245,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="智能还款提醒" id="r41-rV-Bub"/>
                     <connections>
-                        <outlet property="currentMonthMoney" destination="qY5-Be-LeZ" id="4BX-il-8AB"/>
                         <outlet property="cv" destination="8fD-dG-GvI" id="3RT-Cd-hlQ"/>
                         <outlet property="sysMessage" destination="xVn-Iy-w3T" id="FB4-1d-4ut"/>
                         <outlet property="sysMessage2" destination="m6f-dJ-7uL" id="Axc-Wk-UX0"/>
-                        <outlet property="topImage" destination="dtH-vo-Ra8" id="L60-GN-fCm"/>
+                        <outlet property="view1" destination="ADk-uE-Axt" id="o6r-jh-diL"/>
                         <outlet property="view12" destination="cTV-LE-qgN" id="In4-oL-Yyb"/>
                     </connections>
                 </viewController>

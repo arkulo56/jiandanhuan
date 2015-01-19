@@ -21,6 +21,11 @@
 		AC341D431A553D66003D34F4 /* addCredit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D421A553D66003D34F4 /* addCredit.swift */; };
 		AC8D74591A6789EF0040602E /* salaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D74581A6789EF0040602E /* salaryViewController.swift */; };
 		AC8D745B1A679EB90040602E /* Saraly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D745A1A679EB90040602E /* Saraly.swift */; };
+		ACEEDA831A6CAC3C00542C2B /* PDBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEEDA7B1A6CAC3C00542C2B /* PDBarChart.swift */; };
+		ACEEDA841A6CAC3C00542C2B /* PDChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEEDA7C1A6CAC3C00542C2B /* PDChart.swift */; };
+		ACEEDA851A6CAC3C00542C2B /* PDChartAxesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEEDA7E1A6CAC3C00542C2B /* PDChartAxesComponent.swift */; };
+		ACEEDA861A6CAC3C00542C2B /* PDLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEEDA801A6CAC3C00542C2B /* PDLineChart.swift */; };
+		ACEEDA871A6CAC3C00542C2B /* PDPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEEDA821A6CAC3C00542C2B /* PDPieChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		AC341D421A553D66003D34F4 /* addCredit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addCredit.swift; sourceTree = "<group>"; };
 		AC8D74581A6789EF0040602E /* salaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = salaryViewController.swift; sourceTree = "<group>"; };
 		AC8D745A1A679EB90040602E /* Saraly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saraly.swift; sourceTree = "<group>"; };
+		ACEEDA7B1A6CAC3C00542C2B /* PDBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDBarChart.swift; sourceTree = "<group>"; };
+		ACEEDA7C1A6CAC3C00542C2B /* PDChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDChart.swift; sourceTree = "<group>"; };
+		ACEEDA7E1A6CAC3C00542C2B /* PDChartAxesComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDChartAxesComponent.swift; sourceTree = "<group>"; };
+		ACEEDA801A6CAC3C00542C2B /* PDLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDLineChart.swift; sourceTree = "<group>"; };
+		ACEEDA821A6CAC3C00542C2B /* PDPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDPieChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 		AC341D0D1A53F4C9003D34F4 = {
 			isa = PBXGroup;
 			children = (
+				ACEEDA791A6CAC3C00542C2B /* PDChart */,
 				AC341D181A53F4C9003D34F4 /* jiandanhuan */,
 				AC341D311A53F4C9003D34F4 /* jiandanhuanTests */,
 				AC341D171A53F4C9003D34F4 /* Products */,
@@ -134,6 +145,50 @@
 				AC341D331A53F4C9003D34F4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACEEDA791A6CAC3C00542C2B /* PDChart */ = {
+			isa = PBXGroup;
+			children = (
+				ACEEDA7A1A6CAC3C00542C2B /* PDBarChart */,
+				ACEEDA7C1A6CAC3C00542C2B /* PDChart.swift */,
+				ACEEDA7D1A6CAC3C00542C2B /* PDChartComponent */,
+				ACEEDA7F1A6CAC3C00542C2B /* PDLineChart */,
+				ACEEDA811A6CAC3C00542C2B /* PDPieChart */,
+			);
+			path = PDChart;
+			sourceTree = "<group>";
+		};
+		ACEEDA7A1A6CAC3C00542C2B /* PDBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				ACEEDA7B1A6CAC3C00542C2B /* PDBarChart.swift */,
+			);
+			path = PDBarChart;
+			sourceTree = "<group>";
+		};
+		ACEEDA7D1A6CAC3C00542C2B /* PDChartComponent */ = {
+			isa = PBXGroup;
+			children = (
+				ACEEDA7E1A6CAC3C00542C2B /* PDChartAxesComponent.swift */,
+			);
+			path = PDChartComponent;
+			sourceTree = "<group>";
+		};
+		ACEEDA7F1A6CAC3C00542C2B /* PDLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				ACEEDA801A6CAC3C00542C2B /* PDLineChart.swift */,
+			);
+			path = PDLineChart;
+			sourceTree = "<group>";
+		};
+		ACEEDA811A6CAC3C00542C2B /* PDPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				ACEEDA821A6CAC3C00542C2B /* PDPieChart.swift */,
+			);
+			path = PDPieChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,11 +293,16 @@
 			files = (
 				AC341D431A553D66003D34F4 /* addCredit.swift in Sources */,
 				AC341D211A53F4C9003D34F4 /* ViewController.swift in Sources */,
+				ACEEDA841A6CAC3C00542C2B /* PDChart.swift in Sources */,
 				AC341D1C1A53F4C9003D34F4 /* AppDelegate.swift in Sources */,
+				ACEEDA851A6CAC3C00542C2B /* PDChartAxesComponent.swift in Sources */,
 				AC0494DF1A6400D00038E642 /* Repayment.swift in Sources */,
+				ACEEDA861A6CAC3C00542C2B /* PDLineChart.swift in Sources */,
+				ACEEDA831A6CAC3C00542C2B /* PDBarChart.swift in Sources */,
 				AC8D74591A6789EF0040602E /* salaryViewController.swift in Sources */,
 				AC0494E31A640EFE0038E642 /* rePaymentViewController.swift in Sources */,
 				AC0494E11A6400D00038E642 /* Credit.swift in Sources */,
+				ACEEDA871A6CAC3C00542C2B /* PDPieChart.swift in Sources */,
 				AC341D411A550D84003D34F4 /* myCollectionViewCell.swift in Sources */,
 				AC341D1F1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld in Sources */,
 				AC8D745B1A679EB90040602E /* Saraly.swift in Sources */,

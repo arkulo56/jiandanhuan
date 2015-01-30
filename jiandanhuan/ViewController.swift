@@ -61,7 +61,7 @@ class ViewController:
         cv!.dataSource=self
         cv!.delegate=self
         cv!.registerClass(myCollectionViewCell.self, forCellWithReuseIdentifier: "newCell")
-        cv!.backgroundColor=UIColor.whiteColor()
+        //cv!.backgroundColor=UIColor.whiteColor()
         
         //路径
         println(applicationDirectoryPath())
@@ -77,7 +77,7 @@ class ViewController:
         var d:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
         if(d?.count>0)
         {
-            var tmpDay = d[0].valueForKey("daySaraly")
+            var tmpDay: AnyObject? = d[0].valueForKey("daySaraly")
             daySaraly = "每月\(tmpDay)号发薪水哦～"
         }else
         {
@@ -99,7 +99,7 @@ class ViewController:
         var rq = NSFetchRequest(entityName: "Repayment")
         var whe = NSPredicate(format: "year=%@","\(year)")
         var whe1 = NSPredicate(format: "month=%@", "\(month)")
-        var compound = NSCompoundPredicate.andPredicateWithSubpredicates([whe,whe1])
+        var compound = NSCompoundPredicate.andPredicateWithSubpredicates([whe!,whe1!])
         rq.predicate = compound
         var tmpData:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
         //println(tmpData.count)
@@ -107,7 +107,7 @@ class ViewController:
         for item in tmpData
         {
             //println(item.valueForKey("payAmount"))
-            if let value = item.valueForKey("payAmount") as? NSNumber {
+            if let value = item.valueForKey("payAmount") as? Int {
                 payAmout = payAmout+value
             }
         }

@@ -58,7 +58,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="RTB-Om-Hdl" firstAttribute="top" secondItem="wYM-B3-h8m" secondAttribute="bottom" constant="15" id="1ZN-nh-u4b" userLabel="L2-L1"/>
                                     <constraint firstItem="cEs-wB-zDg" firstAttribute="top" secondItem="RTB-Om-Hdl" secondAttribute="bottom" constant="15" id="3ar-ec-dnl" userLabel="L3-L2"/>
@@ -120,12 +120,12 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADk-uE-Axt" userLabel="View11">
                                         <rect key="frame" x="0.0" y="67" width="600" height="119"/>
-                                        <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W99-EI-dSo" userLabel="View12">
                                         <rect key="frame" x="0.0" y="190" width="600" height="132"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0un-6d-xl4">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0un-6d-xl4">
                                                 <rect key="frame" x="34" y="41" width="532" height="72"/>
                                                 <color key="backgroundColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -140,7 +140,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="0un-6d-xl4" secondAttribute="trailing" constant="10" id="Bmp-Ui-NnJ" userLabel="10日右边距"/>
                                             <constraint firstItem="0un-6d-xl4" firstAttribute="leading" secondItem="K4l-de-PK6" secondAttribute="leading" constant="-15" id="MaK-5v-aqy" userLabel="两元素左对齐"/>
@@ -155,6 +155,7 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-dG-GvI">
                                                 <rect key="frame" x="49" y="32" width="502" height="104"/>
+                                                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="au1-81-70a">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -181,7 +182,7 @@
                                                 </connections>
                                             </collectionView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.80000001192092896" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="8fD-dG-GvI" secondAttribute="bottom" id="4DQ-ay-KkQ" userLabel="collect"/>
                                             <constraint firstItem="8fD-dG-GvI" firstAttribute="top" secondItem="cTV-LE-qgN" secondAttribute="top" id="T0z-aq-lIE" userLabel="collect"/>
@@ -207,7 +208,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="m6f-dJ-7uL" secondAttribute="bottom" constant="5" id="1cV-hU-ThA" userLabel="L2"/>
                                             <constraint firstItem="m6f-dJ-7uL" firstAttribute="top" secondItem="xVn-Iy-w3T" secondAttribute="bottom" constant="2" id="cI3-Rt-SyS" userLabel="L1-L2"/>
@@ -277,7 +278,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="银      行：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaP-c6-xGN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="银       行：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaP-c6-xGN">
                                         <rect key="frame" x="29" y="66" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="WiV-Yr-EC6"/>
@@ -292,7 +293,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="账 单 日：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUI-i2-ESM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="账       单：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUI-i2-ESM">
                                         <rect key="frame" x="29" y="116" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="ra2-uV-jIe"/>
@@ -307,8 +308,8 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="还 款 日：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYY-OL-LkS">
-                                        <rect key="frame" x="29" y="166" width="100" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="还       款：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYY-OL-LkS">
+                                        <rect key="frame" x="29" y="166" width="104" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="dBj-lD-J0O"/>
                                         </constraints>
@@ -331,25 +332,25 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="eaP-c6-xGN" firstAttribute="leading" secondItem="3IJ-dD-zv3" secondAttribute="leading" constant="20" id="1bU-8B-3eb" userLabel="银行"/>
                                     <constraint firstItem="gjS-XT-tQu" firstAttribute="leading" secondItem="eaP-c6-xGN" secondAttribute="trailing" id="2Sd-9q-Z2J" userLabel="银行－招商"/>
                                     <constraint firstItem="gjS-XT-tQu" firstAttribute="centerY" secondItem="eaP-c6-xGN" secondAttribute="centerY" id="8Te-6z-xto" userLabel="招商－银行"/>
                                     <constraint firstAttribute="trailing" secondItem="mDk-DC-UNC" secondAttribute="trailing" constant="30" id="Czc-DL-11i" userLabel="input"/>
-                                    <constraint firstItem="8H1-V2-lca" firstAttribute="top" secondItem="KYY-OL-LkS" secondAttribute="bottom" constant="20" id="Drf-Ye-1Uy" userLabel="本月还款－还款日"/>
+                                    <constraint firstItem="8H1-V2-lca" firstAttribute="top" secondItem="KYY-OL-LkS" secondAttribute="bottom" constant="5" id="Drf-Ye-1Uy" userLabel="本月还款－还款日"/>
                                     <constraint firstItem="iZB-f6-aLw" firstAttribute="leading" secondItem="QUI-i2-ESM" secondAttribute="trailing" id="OGR-Mv-jND" userLabel="账单日－日期"/>
                                     <constraint firstItem="QUI-i2-ESM" firstAttribute="leading" secondItem="eaP-c6-xGN" secondAttribute="leading" id="OvG-aQ-ybQ" userLabel="银行－账单日"/>
                                     <constraint firstItem="KYY-OL-LkS" firstAttribute="leading" secondItem="QUI-i2-ESM" secondAttribute="leading" id="VGJ-Sc-WTs" userLabel="还款日－账单日"/>
                                     <constraint firstItem="mDk-DC-UNC" firstAttribute="centerY" secondItem="8H1-V2-lca" secondAttribute="centerY" id="XqM-H3-Me1" userLabel="本月还款－input"/>
                                     <constraint firstItem="mDk-DC-UNC" firstAttribute="leading" secondItem="8H1-V2-lca" secondAttribute="trailing" id="cg4-Rh-gih" userLabel="本月还款－input"/>
-                                    <constraint firstItem="KYY-OL-LkS" firstAttribute="top" secondItem="QUI-i2-ESM" secondAttribute="bottom" constant="20" id="dzQ-WU-edX" userLabel="还款日－账单日"/>
+                                    <constraint firstItem="KYY-OL-LkS" firstAttribute="top" secondItem="QUI-i2-ESM" secondAttribute="bottom" constant="5" id="dzQ-WU-edX" userLabel="还款日－账单日"/>
                                     <constraint firstItem="KYY-OL-LkS" firstAttribute="leading" secondItem="8H1-V2-lca" secondAttribute="leading" id="e7Y-06-rmX" userLabel="本月还款－还款日"/>
                                     <constraint firstItem="eaP-c6-xGN" firstAttribute="top" secondItem="3IJ-dD-zv3" secondAttribute="top" constant="20" id="l4H-8Z-zA8" userLabel="银行"/>
                                     <constraint firstItem="KYY-OL-LkS" firstAttribute="centerY" secondItem="6Dy-de-AR9" secondAttribute="centerY" id="sX1-CU-Ug6" userLabel="还款日－日期"/>
                                     <constraint firstItem="6Dy-de-AR9" firstAttribute="leading" secondItem="KYY-OL-LkS" secondAttribute="trailing" id="tfT-MO-2tb" userLabel="还款日－日期"/>
                                     <constraint firstItem="QUI-i2-ESM" firstAttribute="centerY" secondItem="iZB-f6-aLw" secondAttribute="centerY" id="vx2-u3-ErY" userLabel="账单日－日期"/>
-                                    <constraint firstItem="QUI-i2-ESM" firstAttribute="top" secondItem="eaP-c6-xGN" secondAttribute="bottom" constant="20" id="yjo-Wz-1fD" userLabel="银行－账单日"/>
+                                    <constraint firstItem="QUI-i2-ESM" firstAttribute="top" secondItem="eaP-c6-xGN" secondAttribute="bottom" constant="5" id="yjo-Wz-1fD" userLabel="银行－账单日"/>
                                 </constraints>
                             </view>
                         </subviews>

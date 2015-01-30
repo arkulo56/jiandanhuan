@@ -124,7 +124,7 @@ class addCredit: UIViewController {
             rq.sortDescriptors = [sort]
             rq.fetchLimit = 1
             var res:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
-            var bankId = res[0].valueForKey("bankId") as NSNumber
+            var bankId = res[0].valueForKey("bankId") as Int//NSNumber
             
             row.bank = bankTF.text
             row.zhangdanri = zhangdanriTF.text.toInt()!

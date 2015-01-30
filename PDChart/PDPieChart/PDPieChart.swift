@@ -92,7 +92,9 @@ class PDPieChart: PDChart {
             
             //pie center point
             var sign: Int = self.dataItem.clockWise ? -1 : 1
-            var angle: Float = Float(dataItem.percentage) * Float(M_PI) * Float(2.0) / 2.0 + Float(totalPercentage) * Float(M_PI * 2.0)
+            var angle: Float = Float(dataItem.percentage) * Float(M_PI) * Float(2.0) / 2.0// + Float(totalPercentage) * Float(M_PI * 2.0)
+            
+            angle += Float(totalPercentage) * Float(M_PI * 2.0)
             
             var pieCenterPointX: CGFloat = center.x + radius * CGFloat(sinf(angle))
             var pieCenterPointY: CGFloat = center.y - radius * CGFloat(cosf(angle))

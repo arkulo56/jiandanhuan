@@ -18,7 +18,7 @@ class PDChart: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.whiteColor()
-        self.alpha = 1
+        self.alpha = 0.7
     }
 
     required init(coder aDecoder: NSCoder) {

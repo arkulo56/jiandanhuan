@@ -56,7 +56,7 @@ class rePaymentViewController: UIViewController {
     @IBAction func addRepayment(sender: UIBarButtonItem) {
         var row = NSEntityDescription.insertNewObjectForEntityForName("Repayment", inManagedObjectContext: content!) as Repayment
         
-        row.addDate = NSDate.date()
+        row.addDate = NSDate()//.date()
         row.year = year
         row.month = month
         row.payAmount = NSDecimalNumber(string: amountTF.text)

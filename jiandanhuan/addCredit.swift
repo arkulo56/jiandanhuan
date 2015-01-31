@@ -113,6 +113,31 @@ class addCredit: UIViewController {
         self.tabBarController?.selectedIndex=0
         }
     }
+    
+    //远程服务器写数据
+    func withConnectMyservice(day:NSNumber)
+    {
+        var deleGate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        //给provider服务器提供数据
+        
+        var url:String = "http://www.lanmayi.cn/ios/addPushDay.php?token="+deleGate.deviceTokenString!
+        var request:NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            if (jsonResult != nil) {
+                println("connect service faild")
+            } else {
+                println("connect service ok")
+            }
+        })
+        
+    }
 
     @IBAction func addSave(sender: UIBarButtonItem) {
         if(!bankTF.text.isEmpty && !zhangdanriTF.text.isEmpty && !huankuanriTF.text.isEmpty)
@@ -131,9 +156,10 @@ class addCredit: UIViewController {
             row.huankuanri = huankuanriTF.text.toInt()!
             row.bankId = bankId+1
             content?.save(nil)
+            //服务器推送提醒日程数据
+            withConnectMyservice(row.zhangdanri)
             //计算最佳还款日
             dayCalculation()
-            
             
         }
     }

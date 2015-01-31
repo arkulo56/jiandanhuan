@@ -271,7 +271,7 @@ class ViewController:
             //调用远程数据删除
             var day = self.dataArr[self.nowIndexData].valueForKey("zhangdanri") as NSNumber
             self.withConnectMyservice(day)
-                    
+            
             self.content.deleteObject(self.dataArr[self.nowIndexData] as NSManagedObject)
             self.content.save(nil)
             self.initData()

@@ -203,6 +203,29 @@ class ViewController:
         initSaraly()
     }
 
+    //app删除信用卡，同时删除服务器上的推送数据
+    func withConnectMyservice(day:NSNumber)
+    {
+        var deleGate = UIApplication.sharedApplication().delegate as AppDelegate
+        var d = String(Int(day))
+        //给provider服务器提供数据
+        var url:String = "http://www.lanmayi.cn/ios/deletePushDay.php?token="+deleGate.deviceTokenString!+"&day="+d+"&type=1"
+        var request:NSMutableURLRequest = NSMutableURLRequest()
+        request.URL = NSURL(string: url)
+        request.HTTPMethod = "GET"
+        println(url)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
+            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            if (jsonResult != nil) {
+                println("delete action connect service faild")
+            } else {
+                println("delete action connect service ok")
+            }
+        })
+        
+    }
     
     //给cell绑定long press的callback函数
     func longPress(recognizer: UILongPressGestureRecognizer){
@@ -215,8 +238,12 @@ class ViewController:
             refreshAlert.addAction(UIAlertAction(title: "是", style: .Default, handler:
                 { (action: UIAlertAction!) in
                   
-                    self.content.deleteObject(self.dataArr[self.nowIndexData] as NSManagedObject)
+                    var item = self.dataArr[self.nowIndexData] as NSManagedObject
+                    self.content.deleteObject(item)
                     self.content.save(nil)
+                    //调用远程数据删除
+                    var day: NSNumber = item.valueForKey("zhangdanri") as NSNumber
+                    self.withConnectMyservice(day)
                     self.initData()
                     self.cv!.reloadData()
                 }
@@ -241,7 +268,10 @@ class ViewController:
         
         switch buttonIndex{
         case 0:
-            //println("alert")
+            //调用远程数据删除
+            var day = self.dataArr[self.nowIndexData].valueForKey("zhangdanri") as NSNumber
+            self.withConnectMyservice(day)
+                    
             self.content.deleteObject(self.dataArr[self.nowIndexData] as NSManagedObject)
             self.content.save(nil)
             self.initData()

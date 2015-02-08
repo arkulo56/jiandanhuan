@@ -121,6 +121,7 @@ class addCredit: UIViewController {
         var d = String(Int(day))
         //给provider服务器提供数据
         var url:String = "http://www.lanmayi.cn/ios/addPushDay.php?token="+deleGate.deviceTokenString!+"&day="+d+"&type=1"
+        println(url)
         var request:NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"

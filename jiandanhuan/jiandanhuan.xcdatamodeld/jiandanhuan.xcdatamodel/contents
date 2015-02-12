@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Best_repayment_date" representedClassName="Best_repayment_date" syncable="YES">
+        <attribute name="bestDate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Credit" representedClassName="Credit" syncable="YES">
         <attribute name="bank" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bankId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="huankuanri" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="zhangdanri" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="toRepayment" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Repayment" inverseName="toCredit" inverseEntity="Repayment" syncable="YES"/>
+    </entity>
+    <entity name="Monthly_repayment_amount" representedClassName="Monthly_repayment_amount" syncable="YES">
+        <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Repayment" representedClassName="Repayment" syncable="YES">
         <attribute name="addDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -14,13 +22,10 @@
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="toCredit" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Credit" inverseName="toRepayment" inverseEntity="Credit" syncable="YES"/>
     </entity>
-    <entity name="Saraly" representedClassName="Saraly" syncable="YES">
-        <attribute name="daySaraly" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="sId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Credit" positionX="-63" positionY="-18" width="128" height="118"/>
         <element name="Repayment" positionX="178" positionY="-33" width="128" height="118"/>
-        <element name="Saraly" positionX="-63" positionY="144" width="128" height="73"/>
+        <element name="Best_repayment_date" positionX="-63" positionY="162" width="128" height="58"/>
+        <element name="Monthly_repayment_amount" positionX="178" positionY="162" width="128" height="88"/>
     </elements>
 </model>

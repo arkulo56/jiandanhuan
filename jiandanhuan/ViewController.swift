@@ -25,13 +25,9 @@ class ViewController:
     @IBOutlet var cv: UICollectionView!
     //应用集合的上层view
     @IBOutlet var view12: UIView!
-    //最上面的图片
-    //@IBOutlet weak var topImage: UIImageView!
-    //当月还款总额label
-    //@IBOutlet weak var currentMonthMoney: UILabel!
+
     //系统信息
     @IBOutlet weak var sysMessage: UILabel!
-    
     @IBOutlet weak var sysMessage2: UILabel!
     //数据变量
     var dataArr:Array<AnyObject>! = []
@@ -42,7 +38,7 @@ class ViewController:
     //当月还款总额
     var amountNum:String!
     //发薪水的日子
-    var daySaraly:String!
+    //var daySaraly:String!
     
     //视图初始化
     override func viewDidLoad() {
@@ -64,28 +60,10 @@ class ViewController:
         //cv!.backgroundColor=UIColor.whiteColor()
         
         //路径
-        println(applicationDirectoryPath())
+        //println(applicationDirectoryPath())
         
     }
-    
-    //查询发薪水的日子
-    func initSaraly()
-    {
-        var rq = NSFetchRequest(entityName: "Saraly")
-        var whe = NSPredicate(format: "sId=%@", "1")
-        rq.predicate = whe
-        var d:Array<AnyObject>! = content.executeFetchRequest(rq, error: nil)
-        if(d?.count>0)
-        {
-            var tmpDay: AnyObject? = d[0].valueForKey("daySaraly")
-            daySaraly = "每月\(tmpDay)号发薪水哦～"
-        }else
-        {
-            daySaraly = "还没有设置发薪水日哦～"
-        }
-        sysMessage.text = daySaraly
-    }
-   
+
     //计算目前当月总计还款总额
     func computeAmount()
     {
@@ -114,25 +92,9 @@ class ViewController:
         amountNum = "本月应还款$\(payAmout).00"
         //改变label的内容
         sysMessage2.text = amountNum
-        //改变top图片
-        /*
-        var image1:UIImage? = UIImage(named: "bik")
-        var image2:UIImage? = UIImage(named: "motuo")
-        var image3:UIImage? = UIImage(named: "qiche")
-        switch payAmout
-        {
-        case 0...3000:
-            topImage.image = image1
-        case 3000...6000:
-            topImage.image = image2
-        case 6000...10000:
-            topImage.image = image3
-        default:
-            topImage.image = image3
-        }
-        */
     }
-    //数据总数
+    
+    //集合数据总数-------------------------------------------
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArr.count
     }
@@ -199,8 +161,6 @@ class ViewController:
         dataArr = content.executeFetchRequest(tmp,error:nil)
         //计算当月还款总额
         computeAmount()
-        //获取薪水日
-        initSaraly()
     }
 
     //app删除信用卡，同时删除服务器上的推送数据
@@ -287,7 +247,7 @@ class ViewController:
         }
     }
     
-    //给view1画图表
+    //给view1画图表--------------------------------------------------------
     func getLineChart() -> PDLineChart {
         var dataItem: PDLineChartDataItem = PDLineChartDataItem()
         dataItem.xMax = 12.0
@@ -333,8 +293,7 @@ class ViewController:
         self.tWidth = self.view1.frame.size.width
         self.tHeight = self.view1.frame.size.height
         
-        println(self.tWidth)
-        println(self.tHeight)
+        //给view1添加图表功能
         var lineChart: PDLineChart = self.getLineChart()
         self.view1.addSubview(lineChart)
         lineChart.strokeChart()

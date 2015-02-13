@@ -11,7 +11,7 @@ import CoreData
 
 class Best_repayment_date: NSManagedObject {
 
-    @NSManaged var bestDate: NSNumber
     @NSManaged var addDate: NSDate
+    @NSManaged var bestDate: NSNumber
 
 }

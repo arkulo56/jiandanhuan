@@ -1,5 +1,5 @@
 //
-//  Best_repayment_date.swift
+//  BestDay.swift
 //  jiandanhuan
 //
 //  Created by 赵勇 on 15-2-12.
@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-class Best_repayment_date: NSManagedObject {
+@objc(BestDay)
+class BestDay: NSManagedObject {
 
     @NSManaged var bestDate: NSNumber
     @NSManaged var addDate: NSDate

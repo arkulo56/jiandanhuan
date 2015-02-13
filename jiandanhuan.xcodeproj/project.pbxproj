@@ -10,8 +10,9 @@
 		AC0494DF1A6400D00038E642 /* Repayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0494DE1A6400D00038E642 /* Repayment.swift */; };
 		AC0494E11A6400D00038E642 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0494E01A6400D00038E642 /* Credit.swift */; };
 		AC0494E31A640EFE0038E642 /* rePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0494E21A640EFE0038E642 /* rePaymentViewController.swift */; };
-		AC336CB71A8C797A00D93342 /* Best_repayment_date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC336CB61A8C797A00D93342 /* Best_repayment_date.swift */; };
-		AC336CB91A8C797B00D93342 /* Monthly_repayment_amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC336CB81A8C797B00D93342 /* Monthly_repayment_amount.swift */; };
+		AC1150ED1A8CBB9100488F03 /* BestDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1150EC1A8CBB9100488F03 /* BestDay.swift */; };
+		AC1150EF1A8CBB9100488F03 /* Monthlyamount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1150EE1A8CBB9100488F03 /* Monthlyamount.swift */; };
+		AC1150F11A8E314100488F03 /* communicationWithProver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1150F01A8E314100488F03 /* communicationWithProver.swift */; };
 		AC341D1C1A53F4C9003D34F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D1B1A53F4C9003D34F4 /* AppDelegate.swift */; };
 		AC341D1F1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC341D1D1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld */; };
 		AC341D211A53F4C9003D34F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D201A53F4C9003D34F4 /* ViewController.swift */; };
@@ -21,7 +22,6 @@
 		AC341D351A53F4C9003D34F4 /* jiandanhuanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D341A53F4C9003D34F4 /* jiandanhuanTests.swift */; };
 		AC341D411A550D84003D34F4 /* myCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D401A550D84003D34F4 /* myCollectionViewCell.swift */; };
 		AC341D431A553D66003D34F4 /* addCredit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC341D421A553D66003D34F4 /* addCredit.swift */; };
-		AC8D745B1A679EB90040602E /* Saraly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D745A1A679EB90040602E /* Saraly.swift */; };
 		ACD23B001A8B2D0D00E7759C /* addCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD23AFF1A8B2D0D00E7759C /* addCredits.swift */; };
 		ACD23B021A8B330B00E7759C /* bankInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD23B011A8B330B00E7759C /* bankInfo.swift */; };
 		ACD23B041A8B364600E7759C /* dateInMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD23B031A8B364600E7759C /* dateInMonth.swift */; };
@@ -46,8 +46,9 @@
 		AC0494DE1A6400D00038E642 /* Repayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repayment.swift; sourceTree = "<group>"; };
 		AC0494E01A6400D00038E642 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		AC0494E21A640EFE0038E642 /* rePaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rePaymentViewController.swift; sourceTree = "<group>"; };
-		AC336CB61A8C797A00D93342 /* Best_repayment_date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Best_repayment_date.swift; sourceTree = "<group>"; };
-		AC336CB81A8C797B00D93342 /* Monthly_repayment_amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monthly_repayment_amount.swift; sourceTree = "<group>"; };
+		AC1150EC1A8CBB9100488F03 /* BestDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestDay.swift; sourceTree = "<group>"; };
+		AC1150EE1A8CBB9100488F03 /* Monthlyamount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monthlyamount.swift; sourceTree = "<group>"; };
+		AC1150F01A8E314100488F03 /* communicationWithProver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = communicationWithProver.swift; sourceTree = "<group>"; };
 		AC341D161A53F4C9003D34F4 /* jiandanhuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jiandanhuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC341D1A1A53F4C9003D34F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC341D1B1A53F4C9003D34F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		AC341D341A53F4C9003D34F4 /* jiandanhuanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jiandanhuanTests.swift; sourceTree = "<group>"; };
 		AC341D401A550D84003D34F4 /* myCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC341D421A553D66003D34F4 /* addCredit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addCredit.swift; sourceTree = "<group>"; };
-		AC8D745A1A679EB90040602E /* Saraly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saraly.swift; sourceTree = "<group>"; };
 		ACD23AFF1A8B2D0D00E7759C /* addCredits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addCredits.swift; sourceTree = "<group>"; };
 		ACD23B011A8B330B00E7759C /* bankInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bankInfo.swift; sourceTree = "<group>"; };
 		ACD23B031A8B364600E7759C /* dateInMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateInMonth.swift; sourceTree = "<group>"; };
@@ -118,9 +118,8 @@
 				AC341D251A53F4C9003D34F4 /* Images.xcassets */,
 				AC341D271A53F4C9003D34F4 /* LaunchScreen.xib */,
 				AC341D1D1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld */,
-				AC336CB81A8C797B00D93342 /* Monthly_repayment_amount.swift */,
-				AC336CB61A8C797A00D93342 /* Best_repayment_date.swift */,
-				AC8D745A1A679EB90040602E /* Saraly.swift */,
+				AC1150EE1A8CBB9100488F03 /* Monthlyamount.swift */,
+				AC1150EC1A8CBB9100488F03 /* BestDay.swift */,
 				AC0494E01A6400D00038E642 /* Credit.swift */,
 				AC0494DE1A6400D00038E642 /* Repayment.swift */,
 				AC341D191A53F4C9003D34F4 /* Supporting Files */,
@@ -130,6 +129,7 @@
 				ACD23AFF1A8B2D0D00E7759C /* addCredits.swift */,
 				ACD23B011A8B330B00E7759C /* bankInfo.swift */,
 				ACD23B031A8B364600E7759C /* dateInMonth.swift */,
+				AC1150F01A8E314100488F03 /* communicationWithProver.swift */,
 			);
 			path = jiandanhuan;
 			sourceTree = "<group>";
@@ -303,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1150ED1A8CBB9100488F03 /* BestDay.swift in Sources */,
 				AC341D431A553D66003D34F4 /* addCredit.swift in Sources */,
 				AC341D211A53F4C9003D34F4 /* ViewController.swift in Sources */,
 				ACD23B021A8B330B00E7759C /* bankInfo.swift in Sources */,
@@ -313,15 +314,14 @@
 				ACEEDA851A6CAC3C00542C2B /* PDChartAxesComponent.swift in Sources */,
 				AC0494DF1A6400D00038E642 /* Repayment.swift in Sources */,
 				ACEEDA861A6CAC3C00542C2B /* PDLineChart.swift in Sources */,
+				AC1150F11A8E314100488F03 /* communicationWithProver.swift in Sources */,
 				ACEEDA831A6CAC3C00542C2B /* PDBarChart.swift in Sources */,
-				AC336CB71A8C797A00D93342 /* Best_repayment_date.swift in Sources */,
 				AC0494E31A640EFE0038E642 /* rePaymentViewController.swift in Sources */,
-				AC336CB91A8C797B00D93342 /* Monthly_repayment_amount.swift in Sources */,
+				AC1150EF1A8CBB9100488F03 /* Monthlyamount.swift in Sources */,
 				AC0494E11A6400D00038E642 /* Credit.swift in Sources */,
 				ACEEDA871A6CAC3C00542C2B /* PDPieChart.swift in Sources */,
 				AC341D411A550D84003D34F4 /* myCollectionViewCell.swift in Sources */,
 				AC341D1F1A53F4C9003D34F4 /* jiandanhuan.xcdatamodeld in Sources */,
-				AC8D745B1A679EB90040602E /* Saraly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

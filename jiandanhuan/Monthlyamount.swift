@@ -1,5 +1,5 @@
 //
-//  Monthly_repayment_amount.swift
+//  Monthlyamount.swift
 //  jiandanhuan
 //
 //  Created by 赵勇 on 15-2-12.
@@ -9,10 +9,11 @@
 import Foundation
 import CoreData
 
-class Monthly_repayment_amount: NSManagedObject {
+@objc(Monthlyamount)
+class Monthlyamount: NSManagedObject {
 
+    @NSManaged var year: NSNumber
     @NSManaged var month: NSNumber
-    @NSManaged var totalAmount: NSNumber
-    @NSManaged var year: NSDate
+    @NSManaged var amount: NSNumber
 
 }

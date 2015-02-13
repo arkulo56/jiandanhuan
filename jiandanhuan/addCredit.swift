@@ -30,6 +30,7 @@ class addCredit: UIViewController {
         
     }
     //初始化最佳还款日数据
+    /*
     func initBest()
     {
         var row = NSEntityDescription.insertNewObjectForEntityForName("Saraly", inManagedObjectContext: content!) as Saraly
@@ -38,6 +39,7 @@ class addCredit: UIViewController {
         content.save(nil)
         obId = row.objectID
     }
+    */
     //薪水日
     /*
     func getSaraly()

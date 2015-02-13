@@ -34,6 +34,8 @@ class addCredits: UIViewController,
     var pickerSelectId:Int! = 0
     //数据库上下文变量
     var content:NSManagedObjectContext!
+    //prover与服务器连接对象
+    var proder:communicationWithProver!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +51,15 @@ class addCredits: UIViewController,
         dateSelect = dateInMonth()
         //初始化数据库上下文变量
         content = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        //初始化prover服务器对象
+        proder = communicationWithProver()
+        
+        
+        println(applicationDirectoryPath())
+        bestRepaymentDay()
     }
     
-    //最后数据保存（导航加号）
+    //最后数据保存（导航加号）------------------------------------------
     @IBAction func saveData(sender: UIBarButtonItem) {
         //判断数据提交的数据是否完整
         println(tableDetail)
@@ -77,11 +85,37 @@ class addCredits: UIViewController,
             row.zhangdanri = self.tableDetail[1].toInt()!
             row.huankuanri = self.tableDetail[2].toInt()!
             content.save(nil)
+            //调用最佳还款日函数
+            bestRepaymentDay()
+            //页面离开之前，将所有数据还原
+            self.tableDetail = ["---","---","---"]
+            self.tb.reloadData()
+            //与自己的proder服务器提交数据
+            self.proder.withConnectMyservice(row.zhangdanri,dayType: 1)
             self.tabBarController?.selectedIndex=0
         }
-
     }
-
+    //计算最佳还款日
+    func bestRepaymentDay()
+    {
+        var f = NSFetchRequest(entityName: "Credit")
+        var d:Array<AnyObject>! = content.executeFetchRequest(f, error: nil)
+        var maxZhangdanri:Int! = 1
+        //最佳还款日，其实就是所有信用卡最后的一个账单日，这个账单日是是最合理的还款日
+        for item in d{
+            var zhangdanri:Int! = item.valueForKey("zhangdanri") as Int
+            if  zhangdanri > maxZhangdanri {
+                maxZhangdanri = zhangdanri
+            }
+        }
+        //保存数据库
+        var row = NSEntityDescription.insertNewObjectForEntityForName("BestDay", inManagedObjectContext: content) as BestDay
+        row.bestDate = maxZhangdanri
+        row.addDate = NSDate()
+        content.save(nil)
+        //与自己的proder服务器提交数据
+        self.proder.withConnectMyservice(row.bestDate,dayType: 2)
+    }
     
     //table协议函数----------------------------
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -130,7 +164,7 @@ class addCredits: UIViewController,
         self.pickerSelectId = 0
         picker.selectRow(0, inComponent: 0, animated: true)
     }
-    //点击完成按钮
+    //点击完成按钮(picker)
     @IBAction func selectPickerOk(sender: UIButton) {
         //不同的选项不用的数据
         switch tbSelectId {
@@ -143,7 +177,7 @@ class addCredits: UIViewController,
         closePicker()
         self.tb.reloadData()
     }
-    //点击取消按钮
+    //点击取消按钮(picker)
     @IBAction func selectPickerCancel(sender: UIButton) {
         closePicker()
     }
@@ -184,7 +218,9 @@ class addCredits: UIViewController,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func applicationDirectoryPath() -> String {
+        return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as String
+    }
 
     /*
     // MARK: - Navigation

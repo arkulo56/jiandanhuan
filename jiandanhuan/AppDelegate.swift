@@ -14,19 +14,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var deviceTokenString:String?
+    
+    //pushNotification开关,1是关闭
+    var pushLock = 1
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //远程通知注册
-        var types: UIUserNotificationType = UIUserNotificationType.Badge |
+        //navigation颜色设置-----------------------------
+        UINavigationBar.appearance().barStyle = UIBarStyle.Black
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 153.0/255.0, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        //tabbar颜色设置
+        /*
+        UITabBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 102.0/255.0, blue: 153.0/255.0, alpha: 1)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: .Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: .Selected)
+        */
+        //远程通知注册-------------------------------------
+        if(self.pushLock==0)
+        {
+            var types: UIUserNotificationType = UIUserNotificationType.Badge |
             UIUserNotificationType.Alert |
             UIUserNotificationType.Sound
         
-        var settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: nil )
+            var settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: nil )
         
-        application.registerUserNotificationSettings( settings )
-        application.registerForRemoteNotifications()
-        
+            application.registerUserNotificationSettings( settings )
+            application.registerForRemoteNotifications()
+        }
         return true
     }
     

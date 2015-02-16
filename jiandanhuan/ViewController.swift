@@ -25,7 +25,6 @@ class ViewController:
     @IBOutlet var cv: UICollectionView!
     //应用集合的上层view
     @IBOutlet var view12: UIView!
-
     //系统信息
     @IBOutlet weak var sysMessage: UILabel!
     @IBOutlet weak var sysMessage2: UILabel!
@@ -37,8 +36,8 @@ class ViewController:
     var nowIndexData:Int!
     //当月还款总额
     var amountNum:String!
-    //发薪水的日子
-    //var daySaraly:String!
+    //远程服务器对象变量
+    var provider:communicationWithProver!
     
     //视图初始化
     override func viewDidLoad() {
@@ -46,7 +45,8 @@ class ViewController:
         content = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         //数据初始化
         initData()
-        
+        //初始化服务器端对象
+        self.provider = communicationWithProver()
         //集合布局
         let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
@@ -57,11 +57,6 @@ class ViewController:
         cv!.dataSource=self
         cv!.delegate=self
         cv!.registerClass(myCollectionViewCell.self, forCellWithReuseIdentifier: "newCell")
-        //cv!.backgroundColor=UIColor.whiteColor()
-        
-        //路径
-        //println(applicationDirectoryPath())
-        
     }
 
     //计算目前当月总计还款总额
@@ -162,30 +157,6 @@ class ViewController:
         //计算当月还款总额
         computeAmount()
     }
-
-    //app删除信用卡，同时删除服务器上的推送数据
-    func withConnectMyservice(day:NSNumber)
-    {
-        var deleGate = UIApplication.sharedApplication().delegate as AppDelegate
-        var d = String(Int(day))
-        //给provider服务器提供数据
-        var url:String = "http://www.lanmayi.cn/ios/deletePushDay.php?token="+deleGate.deviceTokenString!+"&day="+d+"&type=1"
-        var request:NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
-        println(url)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
-            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
-            
-            if (jsonResult != nil) {
-                println("delete action connect service faild")
-            } else {
-                println("delete action connect service ok")
-            }
-        })
-        
-    }
     
     //给cell绑定long press的callback函数
     func longPress(recognizer: UILongPressGestureRecognizer){
@@ -203,7 +174,7 @@ class ViewController:
                     self.content.save(nil)
                     //调用远程数据删除
                     var day: NSNumber = item.valueForKey("zhangdanri") as NSNumber
-                    self.withConnectMyservice(day)
+                    self.provider.withConnectDelete(day)
                     self.initData()
                     self.cv!.reloadData()
                 }
@@ -230,20 +201,14 @@ class ViewController:
         case 0:
             //调用远程数据删除
             var day = self.dataArr[self.nowIndexData].valueForKey("zhangdanri") as NSNumber
-            self.withConnectMyservice(day)
-            
+            self.provider.withConnectDelete(day)
             self.content.deleteObject(self.dataArr[self.nowIndexData] as NSManagedObject)
             self.content.save(nil)
             self.initData()
             self.cv!.reloadData()
-            break;
-        case 1:
-            //NSLog("Dismiss");
-            break;
+            break
         default:
-            //NSLog("Default");
             break;
-            //Some code here..
         }
     }
     
@@ -295,8 +260,9 @@ class ViewController:
         
         //给view1添加图表功能
         var lineChart: PDLineChart = self.getLineChart()
-        self.view1.addSubview(lineChart)
         lineChart.strokeChart()
+        self.view1.addSubview(lineChart)
+        
     }
     func applicationDirectoryPath() -> String {
         return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as String

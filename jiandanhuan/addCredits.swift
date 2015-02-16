@@ -55,8 +55,7 @@ class addCredits: UIViewController,
         proder = communicationWithProver()
         
         
-        println(applicationDirectoryPath())
-        bestRepaymentDay()
+        //println(applicationDirectoryPath())
     }
     
     //最后数据保存（导航加号）------------------------------------------

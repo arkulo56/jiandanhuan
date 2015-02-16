@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pVR-54-tVU">
+                            <tableView clipsSubviews="YES" alpha="0.84999999999999987" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pVR-54-tVU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -101,7 +101,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pVR-54-tVU" secondAttribute="trailing" id="DGU-Uc-vkL" userLabel="table"/>
                             <constraint firstItem="pVR-54-tVU" firstAttribute="top" secondItem="FGE-6q-9gk" secondAttribute="top" id="Wc0-O6-Ioy" userLabel="table"/>
@@ -428,7 +428,7 @@
         <scene sceneID="z02-RK-Jvd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2FK-Z8-bj7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="bik" id="r8L-Ly-uUr"/>
+                    <tabBarItem key="tabBarItem" title="首页" id="r8L-Ly-uUr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1j-vM-OMF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -463,7 +463,4 @@
             <point key="canvasLocation" x="1764" y="878"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bik" width="70" height="70"/>
-    </resources>
 </document>
